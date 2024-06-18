@@ -31,15 +31,6 @@ function clayton_api_action_delete() {
 	
 	$shorturl = $_REQUEST['shorturl'];
 
-	// Check if valid shorturl
-	if( !yourls_is_shorturl( $shorturl ) ) {
-		return array(
-			'statusCode' => 404,
-			'simple'    => 'Error: short URL not found',
-			'message'    => 'error: not found',
-		);	
-	}
-	
 	// Is $shorturl a URL (http://sho.rt/abc) or a keyword (abc) ?
 	if( yourls_get_protocol( $shorturl ) ) {
 		$keyword = yourls_get_relative_url( $shorturl );
