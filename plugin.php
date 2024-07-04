@@ -39,17 +39,10 @@ function rt_api_action_delete() {
 	}
 	
 	// Delete shorturl
-	if( yourls_delete_link_by_keyword( $keyword ) ) {
+	yourls_delete_link_by_keyword( $keyword );
 		return array(
 			'statusCode' => 200,
 			'simple'     => "Shorturl $shorturl deleted",
 			'message'    => 'success: deleted',
-		);	
-	} else {
-		return array(
-			'statusCode' => 500,
-			'simple'     => 'Error: could not delete shorturl, not sure why :-/',
-			'message'    => 'error: unknown error',
-		);	
+		);
 	}
-}
